@@ -17,15 +17,11 @@ int main()
     const double PI = 3.1415926535; 
     double sum = 0;
     
-
-    
     while(fabs(sum - PI) > err){
         sum += 4 * (pow(-1, n+1))/(2*n-1);
         n++;
-    
-        
     }
     printf("%f, %d", sum, n);
-
+    
     return 0;
 }
