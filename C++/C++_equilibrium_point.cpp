@@ -1,41 +1,18 @@
-/******************************************************************************
-
-Welcome to GDB Online.
-GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
-C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
-Code, Compile, Run and Debug online from anywhere in world.
-
-*******************************************************************************/
-#include <iostream>
-
-using namespace std;
-
 int equilibriumPoint(long long a[], int n) {
-    
-        // Your code here
-        int eq = -1;
-        if(n == 1){
-            eq = 1; 
-        }
-        for (int i = 1; i < n-1; i++){
-            long long sum_left = 0, sum_right = 0;
-            
-            for(int j = 0; j < i; j++){
-                sum_left += a[j];
-            }
-            
-            for(int j = i+1; j < n; j++){
-                sum_right += a[j];
-            }
-            
-            if(sum_left == sum_right){
-                eq = i+1;
-                break;
-            }
-            
+        int sum = 0;
+        int left_sum = 0;
+        for (int i = 0; i < n; i++){
+            sum += a[i];
         }
         
-        return eq;
+        for(int i = 0; i < n; i++){
+            sum -= a[i];
+            if (left_sum == sum){
+                return i + 1;
+            }
+            left_sum += a[i];
+        }
+        return -1;
     }
 
     int main(){
